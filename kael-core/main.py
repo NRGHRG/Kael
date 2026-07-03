@@ -1,27 +1,26 @@
 from datetime import datetime
 
+from config.settings import Settings
 
-VERSION = "0.0.1"
-USER_NAME = "Memo"
-
-
-def print_header():
+def print_header(settings: Settings) -> None:
     print("=" * 50)
     print()
-    print("        K A E L")
+    print(f"        {settings.name.upper()}")
     print()
     print("Desktop AI Companion")
-    print(f"Version {VERSION}")
+    print(f"Version {settings.version}")
     print()
     print("=" * 50)
 
 
-def initialize_module(name: str):
-    print(f"✓ {name} initialized")
+def initialize_module(name: str) -> None:
+    print(f"[OK] {name} initialized")
 
 
-def main():
-    print_header()
+def main() -> None:
+    settings = Settings()
+
+    print_header(settings)
 
     print("Initializing...")
     print()
@@ -44,9 +43,9 @@ def main():
     else:
         greeting = "Buenas noches"
 
-    print(f"{greeting}, {USER_NAME}.")
+    print(f"{greeting}, {settings.user}.")
     print()
-    print("Soy Kael.")
+    print(f"Soy {settings.name}.")
     print()
     print("¿En qué trabajamos hoy?")
     print()
