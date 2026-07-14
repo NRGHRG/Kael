@@ -48,6 +48,8 @@ repository's documented principles.
 
 ## Current handoff
 
-Sprint 1, the configuration system, is complete and published. The project is
-preparing for Sprint 2, which will introduce logging. Read `PROJECT_STATE.md`
-before acting because it is the authoritative status document.
+Sprint 1, the configuration system, is complete and published. Sprint 2, the
+console logger, is complete and published with automated tests for its log
+levels. The project is preparing for Sprint 3, which will turn Pulse, Archive,
+Echo, and Mind into real modules. Read `PROJECT_STATE.md` before acting because
+it is the authoritative status document.

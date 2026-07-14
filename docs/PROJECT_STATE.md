@@ -4,10 +4,11 @@ Last updated: 2026-07-14
 
 ## Current phase
 
-Sprint 2 is in progress: the first logger implementation has been added.
+Sprint 2 is complete.
 
-The configuration sprint and shared team context are complete. Logger work has
-started with a small console logger for startup and operational messages.
+The configuration sprint, shared team context, and logger sprint are complete.
+The next proposed sprint is to turn Pulse, Archive, Echo, and Mind into real
+modules.
 
 ## Completed
 
@@ -37,21 +38,29 @@ started with a small console logger for startup and operational messages.
 - Linked the shared context from the repository README.
 - Added `.gitignore` to exclude Python, environment, and tool artifacts.
 
-## Next proposed sprint
-
 ### Sprint 2 — Logger
 
 Goal: replace ad hoc operational output with a small, reliable logging system
 that can support Kael as the project grows.
 
-Initial implementation:
+Completed:
 
 - Added `kael-core/utils/logger.py`.
 - Added timestamped log levels: `INFO`, `OK`, `WARN`, and `ERROR`.
 - Replaced startup status prints in `main.py` with logger calls.
+- Added automated tests for all logger levels in `tests/test_logger.py`.
+- Verified the complete console boot after logger integration.
 
-Next review point: decide whether logs should remain console-only for now or
-also write to a file in a later increment.
+Decision: logs remain console-only for now. File logging is deferred until it
+provides enough value to justify path handling, rotation, encoding, and write
+error behavior.
+
+## Next proposed sprint
+
+### Sprint 3 — Core modules
+
+Goal: convert Pulse, Archive, Echo, and Mind from boot placeholders into small,
+real modules with clear responsibilities and initialization behavior.
 
 ## Later roadmap
 
@@ -63,10 +72,12 @@ also write to a file in a later increment.
 
 ## Known limitations
 
-- There is no automated test suite yet; Sprint 1 was verified with smoke tests.
+- Automated tests currently cover the logger. Broader test coverage does not
+  exist yet.
 - Pulse, Archive, Echo, and Mind are console placeholders, not implemented
   modules.
-- Logger exists as a minimal console utility; it does not write to files yet.
+- Logger exists as a minimal console utility with tests; it does not write to
+  files yet.
 - Boot manager does not exist yet.
 - Voice, memory, desktop, skills, and UI packages are structural placeholders.
 
