@@ -4,11 +4,10 @@ Last updated: 2026-07-14
 
 ## Current phase
 
-Sprint 2 is complete.
+Sprint 3 is in progress: Build the Heart of Kael.
 
 The configuration sprint, shared team context, and logger sprint are complete.
-The next proposed sprint is to turn Pulse, Archive, Echo, and Mind into real
-modules.
+The current sprint introduces BootManager as the startup orchestrator.
 
 ## Completed
 
@@ -57,15 +56,29 @@ error behavior.
 
 ## Next proposed sprint
 
-### Sprint 3 — Core modules
+### Sprint 3 — Build the Heart of Kael
 
-Goal: convert Pulse, Archive, Echo, and Mind from boot placeholders into small,
-real modules with clear responsibilities and initialization behavior.
+Goal: create BootManager, the component responsible for coordinating Kael's
+startup sequence.
+
+Initial implementation:
+
+- Added `kael-core/boot/manager.py`.
+- Moved configuration loading, header rendering, module initialization, and
+  startup greeting out of `main.py`.
+- Reduced `main.py` to creating `BootManager`, then calling `initialize()` and
+  `start()`.
+- Added automated tests for BootManager initialization, startup guard behavior,
+  and ready prompt output.
+
+Decision: `pyproject.toml`, `requirements.txt`, and any future `src/`
+restructure are deferred. They are valuable next steps for Python project
+professionalization, but BootManager remains the center of this sprint.
 
 ## Later roadmap
 
 1. Module abstraction for Pulse, Archive, Echo, and Mind.
-2. Boot manager and structured startup sequence.
+2. Python project metadata with `pyproject.toml` and `requirements.txt`.
 3. First professional boot integrating configuration, logging, and modules.
 4. Memory, voice, desktop integration, skills, and UI in separately approved
    increments.
@@ -78,7 +91,8 @@ real modules with clear responsibilities and initialization behavior.
   modules.
 - Logger exists as a minimal console utility with tests; it does not write to
   files yet.
-- Boot manager does not exist yet.
+- BootManager exists as the startup orchestrator; it still initializes
+  placeholder modules.
 - Voice, memory, desktop, skills, and UI packages are structural placeholders.
 
 ## Handoff rule

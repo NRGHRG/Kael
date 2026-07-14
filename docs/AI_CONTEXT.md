@@ -50,6 +50,7 @@ repository's documented principles.
 
 Sprint 1, the configuration system, is complete and published. Sprint 2, the
 console logger, is complete and published with automated tests for its log
-levels. The project is preparing for Sprint 3, which will turn Pulse, Archive,
-Echo, and Mind into real modules. Read `PROJECT_STATE.md` before acting because
-it is the authoritative status document.
+levels. Sprint 3 is focused on BootManager, the startup orchestrator that will
+eventually coordinate modules like Pulse, Archive, Echo, Mind, Memory, Voice,
+and Vision. Read `PROJECT_STATE.md` before acting because it is the
+authoritative status document.
