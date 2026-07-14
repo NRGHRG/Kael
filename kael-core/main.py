@@ -1,6 +1,8 @@
 from datetime import datetime
 
 from config.settings import Settings
+from utils.logger import Logger
+
 
 def print_header(settings: Settings) -> None:
     print("=" * 50)
@@ -13,22 +15,25 @@ def print_header(settings: Settings) -> None:
     print("=" * 50)
 
 
-def initialize_module(name: str) -> None:
-    print(f"[OK] {name} initialized")
+def initialize_module(name: str, logger: Logger) -> None:
+    logger.ok(f"{name} initialized")
 
 
 def main() -> None:
+    logger = Logger()
+
+    logger.info("Loading configuration")
     settings = Settings()
+    logger.ok("Configuration loaded")
 
     print_header(settings)
 
-    print("Initializing...")
-    print()
+    logger.info("Initializing core modules")
 
-    initialize_module("Pulse")
-    initialize_module("Archive")
-    initialize_module("Echo")
-    initialize_module("Mind")
+    initialize_module("Pulse", logger)
+    initialize_module("Archive", logger)
+    initialize_module("Echo", logger)
+    initialize_module("Mind", logger)
 
     print()
     print("-" * 50)

@@ -1,13 +1,13 @@
 # Project State
 
-Last updated: 2026-07-03
+Last updated: 2026-07-14
 
 ## Current phase
 
-Project foundation complete. Sprint 2 awaits review and approval.
+Sprint 2 is in progress: the first logger implementation has been added.
 
-The configuration sprint and shared team context are complete. Work on the
-logger has not started.
+The configuration sprint and shared team context are complete. Logger work has
+started with a small console logger for startup and operational messages.
 
 ## Completed
 
@@ -44,8 +44,14 @@ logger has not started.
 Goal: replace ad hoc operational output with a small, reliable logging system
 that can support Kael as the project grows.
 
-The detailed design is intentionally undecided. It will be reviewed with Memo
-after the shared context task is complete.
+Initial implementation:
+
+- Added `kael-core/utils/logger.py`.
+- Added timestamped log levels: `INFO`, `OK`, `WARN`, and `ERROR`.
+- Replaced startup status prints in `main.py` with logger calls.
+
+Next review point: decide whether logs should remain console-only for now or
+also write to a file in a later increment.
 
 ## Later roadmap
 
@@ -60,7 +66,8 @@ after the shared context task is complete.
 - There is no automated test suite yet; Sprint 1 was verified with smoke tests.
 - Pulse, Archive, Echo, and Mind are console placeholders, not implemented
   modules.
-- Logger and boot manager do not exist yet.
+- Logger exists as a minimal console utility; it does not write to files yet.
+- Boot manager does not exist yet.
 - Voice, memory, desktop, skills, and UI packages are structural placeholders.
 
 ## Handoff rule
